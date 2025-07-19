@@ -1,4 +1,4 @@
-![Alt text]([https://github.com/Samyar-Sharafi/ConSolar_Framework/blob/main/icon(s)/CONSOLAR_black.png])
+![Logo]([https://example.com/logo.png](https://github.com/Samyar-Sharafi/ConSolar_Framework/blob/main/icon(s)/CONSOLAR_black.png))
 
 ---
 
