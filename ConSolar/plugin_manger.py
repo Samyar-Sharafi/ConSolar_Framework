@@ -2,7 +2,7 @@
 import importlib
 
 #---Plugin management---#
-class Framework:
+class framework:
     def __init__(self):
         self.plugins = []
 
@@ -13,7 +13,7 @@ class Framework:
         except Exception as e:
             print(f"Error registering plugin {plugin}: {e}")
 
-class Plugin:
+class plugin:
     def run(self):
         pass  # Plugins must implement this method
 
@@ -24,7 +24,7 @@ def load_plugin(module_name, class_name):
 
 def unload_plugin(plugin):
     try:
-        plugin.unregister()
+        plugin.unreggister()
     except Exception as e:
         print(f"Error unloading plugin {plugin}: {e}")
 #---Plugin management---#
