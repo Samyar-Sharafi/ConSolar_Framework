@@ -6,7 +6,7 @@ setup(
        author='Samyar-Sharafi',
        author_email='samyar.sharafi.ss@gmail.com',
        description='A Console Framework for Interactive Applications',
-       long_description=open('README.md').read(),
+       long_description=open('docs/README.md').read(),
        long_description_content_type='text/markdown',
        url='https://github.com/Samyar-Sharafi/Consolar',
        packages=find_packages(),
