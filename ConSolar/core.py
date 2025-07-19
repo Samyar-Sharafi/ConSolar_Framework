@@ -13,6 +13,7 @@ from random import choice, randint
 from re import search, match, findall, sub
 from glob import glob
 from shutil import copy, move, rmtree
+from keyboard import *
 
 # CLI and argument parsing
 from argparse import *
@@ -88,7 +89,7 @@ from .config_manager import (
 )
 
 __framework__ = "ConSolar"
-__version__ = "0.0.1b"
+__version__ = "0.0.2a"
 __doc__ = "A Console Framework for Interactive Applications"
 
 class user:
