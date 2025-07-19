@@ -1,12 +1,91 @@
+# Core Python modules
 from os import *
-from rich import print
-from prompt_toolkit import *
+from sys import exit, argv, path as sys_path
+from json import load, loads, dump, dumps
+from logging import getLogger, basicConfig, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from subprocess import run, Popen, PIPE, call
+from pathlib import Path
+from datetime import datetime, date, time, timedelta
+from typing import Optional, List, Dict, Any, Union, Tuple
+from enum import Enum
+from time import sleep
+from random import choice, randint
+from re import search, match, findall, sub
+from glob import glob
+from shutil import copy, move, rmtree
+
+# CLI and argument parsing
 from argparse import *
 from click import *
-from rich.console import *
-from textual import *
-from inquirer import *
-from tqdm import *
+
+# Rich ecosystem for beautiful output
+from rich import print
+from rich.console import Console
+from rich.table import Table
+from rich.progress import track, Progress, BarColumn, TextColumn, TimeRemainingColumn
+from rich.panel import Panel
+from rich.text import Text
+from rich.prompt import Prompt, Confirm, IntPrompt
+from rich.columns import Columns
+from rich.layout import Layout
+from rich.live import Live
+from rich.spinner import Spinner
+from rich.status import Status
+from rich.tree import Tree
+from rich.rule import Rule
+from rich.align import Align
+from rich.padding import Padding
+from rich.markdown import Markdown
+
+# Interactive prompts and UI
+from prompt_toolkit import prompt
+from prompt_toolkit.shortcuts import confirm
+from prompt_toolkit.completion import WordCompleter, PathCompleter
+from prompt_toolkit.history import FileHistory
+from inquirer import prompt as inquirer_prompt
+from inquirer import List, Checkbox, Text as InquirerText, Confirm as InquirerConfirm, Editor, Path as InquirerPath
+
+# Progress bars and indicators
+from tqdm import tqdm, trange
+
+# Textual for TUI apps (if needed)
+from textual.app import App, ComposeResult
+from textual.widgets import Button, Static, Input, TextArea, DataTable, ListView
+from textual.containers import Container, Horizontal, Vertical
+
+# File and configuration handling
+from configparser import ConfigParser
+from pathlib import Path
+try:
+    from yaml import safe_load, safe_dump, load as yaml_load, dump as yaml_dump # type: ignore
+except ImportError:
+    safe_load = safe_dump = yaml_load = yaml_dump = None
+
+# HTTP requests (commonly needed)
+try:
+    from requests import get, post, put, delete, patch, Session
+except ImportError:
+    get = post = put = delete = patch = Session = None
+
+# Data handling
+try:
+    from pandas import DataFrame, read_csv, read_json, read_excel # type: ignore
+except ImportError:
+    DataFrame = read_csv = read_json = read_excel = None
+
+# ConSolar specific imports
+from .logger import ConSolarLogger, LogLevel
+from .error_handler import (
+    ConSolarError, PluginError, ConfigurationError, ValidationError,
+    safe_execute, SafeOperation, validate_not_empty, validate_file_exists, validate_positive_int
+)
+from .plugin_manger import (
+    PluginManager, Plugin, EnhancedPlugin, PluginInfo, 
+    scan_for_plugins, plugin_manager
+)
+from .config_manager import (
+    ConfigManager, EnvConfig, config_manager
+)
 
 __framework__ = "ConSolar"
 __version__ = "0.0.1b"
@@ -42,8 +121,8 @@ class user:
         """
 
 
-if KeyboardInterrupt == True:
-    exit()                     # --> Handling Ctrl + C (KeyboardInterrupt)
+# KeyboardInterrupt handling is now done properly in error_handler.py
+# This was moved to avoid syntax errors
 
 user = user()
 
