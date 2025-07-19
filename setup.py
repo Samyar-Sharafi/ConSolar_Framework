@@ -11,7 +11,7 @@ setup(
        url='https://github.com/Samyar-Sharafi/Consolar',
        packages=find_packages(),
        install_requires=[
-           'click', 'rich', 'prompt_toolkit', 'inquirer', 'tqdm', 'textual'
+           'click', 'rich', 'prompt_toolkit', 'inquirer', 'tqdm', 'textual', 'pandas', 'yaml'
        ],
        classifiers=[
            'Programming Language :: Python :: 3',
