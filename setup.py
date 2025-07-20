@@ -10,9 +10,9 @@ setup(
        long_description_content_type='text/markdown',
        url='https://github.com/Samyar-Sharafi/Consolar',
        packages=find_packages(),
-       install_requires=[
-           'click', 'rich', 'prompt_toolkit', 'inquirer', 'tqdm', 'textual', 'pandas', 'yaml'
-       ],
+    install_requires=[
+        'click', 'rich', 'prompt_toolkit', 'inquirer', 'tqdm', 'textual', 'pandas'
+    ],
        classifiers=[
            'Programming Language :: Python :: 3',
            'License :: OSI Approved :: MIT License',

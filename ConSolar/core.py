@@ -57,10 +57,6 @@ from textual.containers import Container, Horizontal, Vertical
 # File and configuration handling
 from configparser import ConfigParser
 from pathlib import Path
-try:
-    from yaml import safe_load, safe_dump, load as yaml_load, dump as yaml_dump # type: ignore
-except ImportError:
-    safe_load = safe_dump = yaml_load = yaml_dump = None
 
 # HTTP requests (commonly needed)
 try:

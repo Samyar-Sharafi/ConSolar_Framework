@@ -1,0 +1,160 @@
+{
+  "framework_name": "ConSolar Framework",
+  "description": "Console framework for building extensible console applications with plugin support",
+  "installation": {
+    "method": "Clone repository and install dependencies",
+    "command": "pip install -r requirements.txt"
+  },
+  "imports": [
+    {
+      "module": "consolar",
+      "components": ["user", "Framework", "Plugin", "load_plugin"]
+    },
+    {
+      "module": "consolar.plugin_manger",
+      "components": ["Plugin", "Framework"]
+    },
+    {
+      "module": "consolar.logger",
+      "components": ["log"]
+    }
+  ],
+  "classes": [
+    {
+      "name": "user",
+      "type": "class",
+      "methods": [
+        {
+          "name": "user_input",
+          "signature": "user_input(question: str) -> None",
+          "description": "Prompts the user for input. Result is stored in user_value"
+        },
+        {
+          "name": "multi_choice",
+          "signature": "multi_choice(question: str, options: list) -> None",
+          "description": "Prompts the user to select from options. Result is stored in user_value"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "user_value",
+          "description": "Stores the last answer from user input or choice"
+        }
+      ]
+    },
+    {
+      "name": "Framework",
+      "type": "class",
+      "methods": [
+        {
+          "name": "register_plugin",
+          "signature": "register_plugin(plugin: Plugin)",
+          "description": "Registers a plugin instance"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "plugins",
+          "description": "List of registered plugins"
+        }
+      ]
+    },
+    {
+      "name": "Plugin",
+      "type": "class",
+      "methods": [
+        {
+          "name": "run",
+          "signature": "run()",
+          "description": "Method to be implemented by plugins"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "load_plugin",
+      "signature": "load_plugin(module_name: str, class_name: str) -> Plugin",
+      "description": "Dynamically loads a plugin class from a module"
+    },
+    {
+      "name": "log",
+      "module": "consolar.logger",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "The target to log"
+        },
+        {
+          "name": "show_target",
+          "type": "bool",
+          "description": "Toggle visibility of the target"
+        },
+        {
+          "name": "repeat",
+          "type": "int",
+          "description": "Number of times to repeat the log"
+        }
+      ],
+      "description": "Automatically log the target with toggleable visibility"
+    }
+  ],
+  "features": [
+    {
+      "name": "Plugin System",
+      "description": "Support for extensible plugins that inherit from Plugin class"
+    },
+    {
+      "name": "User Input Handling",
+      "description": "Built-in methods for user input and multi-choice selections"
+    },
+    {
+      "name": "Dynamic Plugin Loading",
+      "description": "Ability to dynamically load plugin classes from modules"
+    },
+    {
+      "name": "Logging System",
+      "description": "Automatic logging with configurable visibility and repetition"
+    },
+    {
+      "name": "Plugin Registration",
+      "description": "Framework for registering and managing plugin instances"
+    },
+    {
+      "name": "Error Handling",
+      "description": "Plugin registration errors are printed to the console"
+    }
+  ],
+  "plugin_development": {
+    "steps": [
+      {
+        "step": 1,
+        "description": "Inherit from Plugin class",
+        "required_import": "from consolar.plugin_manger import Plugin"
+      },
+      {
+        "step": 2,
+        "description": "Implement the run() method"
+      },
+      {
+        "step": 3,
+        "description": "Register with the framework using Framework.register_plugin()"
+      }
+    ]
+  },
+  "configuration_options": {
+    "logger": {
+      "target": "Required parameter - the object/value to log",
+      "show_target": "Boolean - controls visibility of the logged target",
+      "repeat": "Integer - number of times to repeat the logging operation"
+    }
+  },
+  "error_handling": [
+    {
+      "type": "Plugin registration errors",
+      "handling": "Printed to console"
+    }
+  ],
+  "license": "MIT",
+  "contribution_guidelines": "Fork the repo, add features, and submit pull requests"
+}
