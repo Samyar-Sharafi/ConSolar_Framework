@@ -71,21 +71,26 @@ except ImportError:
     DataFrame = read_csv = read_json = read_excel = None
 
 # ConSolar specific imports
-from .logger import ConSolarLogger, LogLevel
-from .error_handler import (
+from logger import ConSolarLogger, LogLevel
+from error_handler import (
     ConSolarError, PluginError, ConfigurationError, ValidationError,
     safe_execute, SafeOperation, validate_not_empty, validate_file_exists, validate_positive_int
 )
-from .plugin_manger import (
+from plugin_manger import (
     PluginManager, Plugin, EnhancedPlugin, PluginInfo, 
     scan_for_plugins, plugin_manager
 )
-from .config_manager import (
+from config_manager import (
     ConfigManager, EnvConfig, config_manager
 )
 
+# for parser error handling
+
+import wrapt
+
+
 __framework__ = "ConSolar"
-__version__ = "0.0.2a"
+__version__ = "1.0.0"
 __doc__ = "A Console Framework for Interactive Applications"
 
 class user:
@@ -123,3 +128,17 @@ class user:
 
 user = user()
 
+@wrapt.decorator
+def handle_errors(wrapped, instance, args, kwargs):
+    try:
+        return wrapped(*args, **kwargs)
+    except Exception:
+        # Handle the error silently or log it
+        pass
+
+@handle_errors
+def parse(args:callable, func:callable): 
+    if user.user_value == args:return func(args)
+
+user.user_input("Type smth")
+parse(args="h", func=print(f"you have Typed 'h' !"))
