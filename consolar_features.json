@@ -2,8 +2,8 @@
   "framework_name": "ConSolar Framework",
   "description": "Console framework for building extensible console applications with plugin support",
   "installation": {
-    "method": "Clone repository and install dependencies",
-    "command": "pip install -r requirements.txt"
+    "method": "using 'pip' to install",
+    "command": "pip install consolar"
   },
   "imports": [
     {
@@ -32,13 +32,13 @@
         {
           "name": "multi_choice",
           "signature": "multi_choice(question: str, options: list) -> None",
-          "description": "Prompts the user to select from options. Result is stored in user_value"
+          "description": "Prompts the user to select from options. Result is stored in user_value."
         }
       ],
       "attributes": [
         {
           "name": "user_value",
-          "description": "Stores the last answer from user input or choice"
+          "description": "Stores the last answer from user input or choice for example. other plugins might use it for other usage"
         }
       ]
     },
@@ -156,5 +156,5 @@
     }
   ],
   "license": "MIT",
-  "contribution_guidelines": "Fork the repo, add features, and submit pull requests"
+  "contribution_guidelines": "Fork the repo, add features, and submit pull requests; with your user name at the end of the message."
 }
