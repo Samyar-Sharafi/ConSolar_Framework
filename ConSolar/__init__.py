@@ -31,5 +31,5 @@ __all__ = [
     'user', 'Framework', 'Plugin', 'load_plugin', 'PluginManager', 
     'EnhancedPlugin', 'ConSolarLogger', 'ConfigManager', 'ConSolarError',
     'PluginError', 'safe_execute', 'plugin_manager', 'config_manager',
-    '__version__', '__framework__'
+    '__version__', '__framework__', 'parse', 'user.user_value'
 ]
