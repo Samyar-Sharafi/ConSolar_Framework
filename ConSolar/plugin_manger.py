@@ -3,8 +3,8 @@ import importlib
 import os
 import sys
 from typing import List, Type
-from .error_handler import safe_execute, PluginError
-from .logger import ConSolarLogger
+from error_handler import safe_execute, PluginError
+from logger import ConSolarLogger
 
 logger = ConSolarLogger("PluginManager")
 

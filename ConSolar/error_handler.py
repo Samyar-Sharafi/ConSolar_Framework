@@ -5,7 +5,7 @@ from typing import Optional, Callable, Any
 from rich.console import Console
 from rich.traceback import install
 from rich.panel import Panel
-from .logger import ConSolarLogger, LogLevel
+from logger import ConSolarLogger, LogLevel
 
 # Initialize console and logger
 console = Console()

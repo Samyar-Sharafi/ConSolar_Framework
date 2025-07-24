@@ -4,10 +4,10 @@ ConSolar Framework - Main Entry Point
 """
 
 import sys
-from .core import *
-from .plugin_manger import plugin_manager
-from .logger import ConSolarLogger
-from .config_manager import config_manager
+from core import *
+from plugin_manger import plugin_manager
+from logger import ConSolarLogger
+from config_manager import config_manager
 
 logger = ConSolarLogger("ConSolar")
 

@@ -2,8 +2,8 @@ import os
 import json
 from typing import Dict, Any, Optional
 from pathlib import Path
-from .logger import ConSolarLogger
-from .error_handler import ConfigurationError, safe_execute
+from logger import ConSolarLogger
+from error_handler import ConfigurationError, safe_execute
 
 logger = ConSolarLogger("ConfigManager")
 
