@@ -14,7 +14,7 @@
 
 ### Installation
 
-Clone the repository and install dependencies from `requirements.txt` using `pip install -r requirements.txt`.
+Go to your terminal and type ` pip install consolar`
 
 ### Basic Usage
 
@@ -84,6 +84,21 @@ log(target= x, show_target= True, repeat= 1)
 ```
 
 ---
+
+# Parser
+
+* Parses a command
+
+  ```python
+  from consolar.core import parse, user
+
+  user.user_input("Type smth")
+  parse(args="h", func=print(f"you have Typed 'h' !"))
+  ```
+
+---
+
+
 
 ## Error Handling
 
